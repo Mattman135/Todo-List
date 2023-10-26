@@ -1,10 +1,8 @@
 import createProject from "./createProject";
-import createModal from "./modal";
+
 
 const addBtn = document.querySelector('#addBtnli');
-addBtn.addEventListener('click', () => {
-    createModal();
-})
+
 
 const title = "test";
 const description = "this is a test description";
