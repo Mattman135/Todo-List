@@ -1,15 +1,10 @@
+// Everything in this file should only handle all you see on the first page and nothing else
+
 import createProject from "./createProject";
+import createForm from "./createForm";
 
-
-const addBtn = document.querySelector('#addBtnli');
-
-
-const title = "test";
-const description = "this is a test description";
-const dueDate = "Hurry, due date is tomorrow";
-const priority = 1;
-const note = "note";
-const checklist = "this is a checklist";
-const project = createProject(title, description, dueDate, priority, note, checklist);
-console.log(project);
-console.log(project.checklist);
+const addProjectBtn = document.getElementById('addProjectBtn');
+addProjectBtn.addEventListener('click', () => {
+    createForm();
+    addProjectBtn.disabled = true;
+})

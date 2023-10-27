@@ -16,9 +16,16 @@
 
 - There should be an add project button.
 
-- Each project (we can call a project for a todo item) should include the following: A title, description, dueDate, priority (not important green, important yellow, really important red), a note, and a todo list aka checklist.
+- Each project (we can call a project for a todo item) should include the following: A title, description, dueDate, priority (not important green, important yellow, really important red), and a todo list.
 
 ## Features
 - Use a colorful theme.
 - The mark color of a text should be something else than the default color. It should work with the color theme.
 - There should a language button that changes the webpages between swedish and english.
+
+
+## Credit
+- Date picker: https://air-datepicker.com/
+- Form emojis: https://emojiguide.com/symbols/white-medium-square/
+- 
+

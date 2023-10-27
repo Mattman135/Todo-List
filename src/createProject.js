@@ -1,5 +1,5 @@
-function createProject (title, description, dueDate, priority, note, checklist) {
-    return { title, description, dueDate, priority, note, checklist }
+function createProject (title, description, dueDate, priority) {
+    return { title, description, dueDate, priority }
 }
 
 export default createProject;
