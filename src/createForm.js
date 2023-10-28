@@ -3,6 +3,8 @@ import deleteForm from "./deleteForm";
 import checkForm from "./checkForm";
 import { compareAsc, format, isDate, isValid } from "date-fns";
 
+const addProjectBtn = document.getElementById('addProjectBtn');
+
 
 function createForm() {
     const Form = document.createElement('form');
@@ -61,10 +63,21 @@ function createForm() {
     //
     const formDiv2 = document.createElement('div');
     formDiv2.classList.add('formDiv2');
+
     const addBtn = document.createElement('button');
     addBtn.type = 'submit';
     addBtn.innerHTML = 'Add project';
 
+    const cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.innerHTML = 'Cancel';
+    cancelBtn.addEventListener('click', () => {
+        deleteForm();
+        addProjectBtn.disabled = false;
+    });
+
+
+    formDiv2.appendChild(cancelBtn);
     formDiv2.appendChild(addBtn);
 
 
@@ -87,15 +100,14 @@ function createForm() {
         
         // date
         let dueDate = document.getElementById('dueDate')
-        console.log(dueDate.value);
         
         //
         let priority = document.getElementById('priority');
 
         // check so that the form is completed
         checkForm(title, description, dueDate, priority);
-
         //
+        addProjectBtn.disabled = false;
     });
 }
 
