@@ -78,6 +78,11 @@ ul {
     padding: 10px;
 }
 
+#li6 {
+    list-style-type: '+';
+    padding: 10px;
+}
+
 ul li button {
     background-color: none;
     background: none;
