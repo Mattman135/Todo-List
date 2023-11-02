@@ -4,8 +4,13 @@ import formIsValid from "./formIsValid";
 import createProject from "./createProject";
 import deleteForm from "./deleteForm";
 
+const homeTabBtn = document.getElementById('homeTabBtn');
+const todayTabBtn = document.getElementById('todayTabBtn');
+const weekTabBtn = document.getElementById('weekTabBtn');
+const priorityTabBtn = document.getElementById('priorityTabBtn');
 const addProjectBtn = document.getElementById('addProjectBtn');
 const projectList = [];
+const tabTitle = document.getElementById('tabTitle');
 
 
 addProjectBtn.addEventListener('click', () => {
@@ -13,7 +18,7 @@ addProjectBtn.addEventListener('click', () => {
     createForm();
     const Form = document.getElementById('createProjectForm');
     const cancelBtn = document.getElementById('cancelBtn');
-    
+
     //
     Form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -39,9 +44,28 @@ addProjectBtn.addEventListener('click', () => {
         deleteForm();
         addProjectBtn.disabled = false;
     });
-
 });
 
+homeTabBtn.addEventListener('click', () => {
+    tabTitle.innerHTML = 'Home';
+});
 
+todayTabBtn.addEventListener('click', () => {
+    tabTitle.innerHTML = 'Today';
+});
 
+weekTabBtn.addEventListener('click', () => {
+    tabTitle.innerHTML = 'Week';
+});
 
+priorityTabBtn.addEventListener('click', () => {
+    tabTitle.innerHTML = 'Priority';
+});
+
+allProjectsTabBtn.addEventListener('click', () => {
+    tabTitle.innerHTML = 'All projects';
+});
+
+addProjectBtn.addEventListener('click', () => {
+    tabTitle.innerHTML = 'Add project';
+});
