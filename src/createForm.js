@@ -1,12 +1,4 @@
-import createProject from "./createProject";
-import deleteForm from "./deleteForm";
-import checkForm from "./checkForm";
-import { compareAsc, format, isDate, isValid } from "date-fns";
-
-const addProjectBtn = document.getElementById('addProjectBtn');
-
-
-function createForm() {
+export default function createForm() {
     const Form = document.createElement('form');
     Form.id = 'createProjectForm';
 
@@ -19,7 +11,6 @@ function createForm() {
     description.id = 'description';
     description.type = 'text';
     description.placeholder = 'Description';
-
 
     // date input
     const formDiv1 = document.createElement('div');
@@ -70,16 +61,11 @@ function createForm() {
 
     const cancelBtn = document.createElement('button');
     cancelBtn.type = 'button';
+    cancelBtn.id = 'cancelBtn';
     cancelBtn.innerHTML = 'Cancel';
-    cancelBtn.addEventListener('click', () => {
-        deleteForm();
-        addProjectBtn.disabled = false;
-    });
-
 
     formDiv2.appendChild(cancelBtn);
     formDiv2.appendChild(addBtn);
-
 
     // add all elements to the form
     Form.appendChild(title);
@@ -87,28 +73,7 @@ function createForm() {
     Form.appendChild(formDiv1);
     Form.appendChild(formDiv2);
 
-
     //
     const rightContent = document.getElementById('right-content');
     rightContent.appendChild(Form);
-
-    //
-    Form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let title = document.getElementById('title');
-        let description = document.getElementById('description');
-        
-        // date
-        let dueDate = document.getElementById('dueDate')
-        
-        //
-        let priority = document.getElementById('priority');
-
-        // check so that the form is completed
-        checkForm(title, description, dueDate, priority);
-        //
-        addProjectBtn.disabled = false;
-    });
-}
-
-export default createForm;
+};
