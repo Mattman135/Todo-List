@@ -27,7 +27,7 @@ export default function createForm() {
     // priority form
     const priority = document.createElement('select');
     priority.id = 'priority';
-    priority.name = 'Priority';
+    priority.name = 'priority';
 
     const priority1 = document.createElement('option');
     priority1.value = '1';

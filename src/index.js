@@ -12,7 +12,6 @@ const addProjectBtn = document.getElementById('addProjectBtn');
 const projectList = [];
 const tabTitle = document.getElementById('tabTitle');
 
-
 addProjectBtn.addEventListener('click', () => {
     addProjectBtn.disabled = true;
     createForm();
@@ -34,6 +33,7 @@ addProjectBtn.addEventListener('click', () => {
             addProjectBtn.disabled = false;
             projectList.push(project);
             console.log("project list", projectList);
+            Form.reset();
         } else {
             alert('Please fill in the form correctly');
         }
