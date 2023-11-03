@@ -170,7 +170,7 @@ form input, form select {
     border: 1px solid var(--form-borders);
 }
 
-.formDiv2 {
+.formDiv3 {
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -180,7 +180,7 @@ form input, form select {
     gap: 5px;
 }
 
-.formDiv2 button {
+.formDiv3 button {
     padding: 3px 15px;
     border: 1px solid var(--form-borders);
     border-radius: 3px;
@@ -188,4 +188,52 @@ form input, form select {
 
 #dueDate {
     cursor: pointer;
+}
+
+.formDiv2 {
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    color: var(--text-color);
+    overflow-y: scroll;
+}
+
+.todoListInputContainer {
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--form-borders);
+    border-radius: 16px;
+}
+
+.todoListInputContainer input {
+    width: 150px;
+}
+
+.todoListInputContainer button {
+    width: 50px;
+}
+
+.todoListInputContainer input, .todoListInputContainer button {
+    border: none;
+    background: none;
+    outline: none;
+    color: black;
+}
+
+.todoListInputContainer button:hover {
+    scale: 1.5;
+    transition: 500ms;
+}
+
+.listItemDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: black;
 }

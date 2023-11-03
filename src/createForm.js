@@ -1,4 +1,4 @@
-export default function createForm() {
+export default function createForm(todoListItems) {
     const Form = document.createElement('form');
     Form.id = 'createProjectForm';
 
@@ -51,9 +51,49 @@ export default function createForm() {
     priority.appendChild(priority4);
     formDiv1.appendChild(priority);
 
-    //
+    // todo list
+    //const todoListItems = [];
     const formDiv2 = document.createElement('div');
     formDiv2.classList.add('formDiv2');
+
+    const todoListInputContainer = document.createElement('div');
+    todoListInputContainer.classList.add('todoListInputContainer');
+    const todoListInput = document.createElement('input');
+    todoListInput.type = 'text';
+    todoListInput.placeholder = 'Add a todo item';
+    const todoListInputBtn = document.createElement('button');
+    todoListInputBtn.innerHTML = '+';
+
+    todoListInputContainer.appendChild(todoListInput);
+    todoListInputContainer.appendChild(todoListInputBtn);
+
+    todoListInputBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(todoListInput.value);
+        todoListItems.push(todoListInput.value);
+
+        let listItemInput = document.createElement('input');
+        listItemInput.type = 'checkbox';
+        listItemInput.name = todoListInput.value;
+
+        let listItemLabel = document.createElement('label');
+        listItemLabel.innerHTML = todoListInput.value;
+        listItemLabel.for = todoListInput.value;
+
+        let listItemDiv = document.createElement('div');
+        listItemDiv.classList.add('listItemDiv');
+        listItemDiv.appendChild(listItemInput);
+        listItemDiv.appendChild(listItemLabel);
+        
+        formDiv2.appendChild(listItemDiv);
+    })
+
+    
+    formDiv2.appendChild(todoListInputContainer);
+
+    //
+    const formDiv3 = document.createElement('div');
+    formDiv3.classList.add('formDiv3');
 
     const addBtn = document.createElement('button');
     addBtn.type = 'submit';
@@ -64,14 +104,15 @@ export default function createForm() {
     cancelBtn.id = 'cancelBtn';
     cancelBtn.innerHTML = 'Cancel';
 
-    formDiv2.appendChild(cancelBtn);
-    formDiv2.appendChild(addBtn);
+    formDiv3.appendChild(cancelBtn);
+    formDiv3.appendChild(addBtn);
 
     // add all elements to the form
     Form.appendChild(title);
     Form.appendChild(description);
     Form.appendChild(formDiv1);
     Form.appendChild(formDiv2);
+    Form.appendChild(formDiv3);
 
     //
     const rightContent = document.getElementById('right-content');

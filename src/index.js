@@ -9,12 +9,13 @@ const todayTabBtn = document.getElementById('todayTabBtn');
 const weekTabBtn = document.getElementById('weekTabBtn');
 const priorityTabBtn = document.getElementById('priorityTabBtn');
 const addProjectBtn = document.getElementById('addProjectBtn');
-const projectList = [];
 const tabTitle = document.getElementById('tabTitle');
 
 addProjectBtn.addEventListener('click', () => {
+    tabTitle.innerHTML = 'Add project';
     addProjectBtn.disabled = true;
-    createForm();
+    const todoListItems = [];
+    createForm(todoListItems);
     const Form = document.getElementById('createProjectForm');
     const cancelBtn = document.getElementById('cancelBtn');
 
@@ -28,12 +29,11 @@ addProjectBtn.addEventListener('click', () => {
             let description = document.getElementById('description').value;
             let dueDate = document.getElementById('dueDate').value;
             let priority = document.getElementById('priority').value;
-            let project = createProject(title, description, dueDate, priority);
+            let project = createProject(title, description, dueDate, priority, todoListItems);
             console.log(project);
             addProjectBtn.disabled = false;
-            projectList.push(project);
-            console.log("project list", projectList);
             Form.reset();
+
         } else {
             alert('Please fill in the form correctly');
         }
@@ -64,8 +64,4 @@ priorityTabBtn.addEventListener('click', () => {
 
 allProjectsTabBtn.addEventListener('click', () => {
     tabTitle.innerHTML = 'All projects';
-});
-
-addProjectBtn.addEventListener('click', () => {
-    tabTitle.innerHTML = 'Add project';
 });
