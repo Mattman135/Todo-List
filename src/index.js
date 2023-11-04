@@ -3,6 +3,9 @@ import createForm from "./createForm";
 import formIsValid from "./formIsValid";
 import createProject from "./createProject";
 import deleteForm from "./deleteForm";
+import viewAllProjects from "./viewAllProjects";
+import clearPageOfProjects from "./clearPageOfProjects";
+import clearPageOfForm from "./clearPageOfForm";
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
@@ -12,12 +15,15 @@ const addProjectBtn = document.getElementById('addProjectBtn');
 const tabTitle = document.getElementById('tabTitle');
 
 addProjectBtn.addEventListener('click', () => {
+    clearPageOfProjects();
     tabTitle.innerHTML = 'Add project';
     addProjectBtn.disabled = true;
     const todoListItems = [];
     createForm(todoListItems);
     const Form = document.getElementById('createProjectForm');
     const cancelBtn = document.getElementById('cancelBtn');
+
+    allProjectsTabBtn.disabled = false;
 
     //
     Form.addEventListener('submit', (e) => {
@@ -68,6 +74,8 @@ priorityTabBtn.addEventListener('click', () => {
 
 allProjectsTabBtn.addEventListener('click', () => {
     tabTitle.innerHTML = 'All projects';
-    console.log(localStorage);
-    console.log(localStorage.length);
+    addProjectBtn.disabled = false;
+    allProjectsTabBtn.disabled = true;
+    clearPageOfForm();
+    viewAllProjects();
 });

@@ -237,3 +237,24 @@ form input, form select {
     gap: 5px;
     color: black;
 }
+
+.allProjectsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin: 32px;
+}
+
+.projectContainer {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    outline: 1px solid black;
+    background-color: white;
+    padding: 8px;
+    color: black;
+}
