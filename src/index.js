@@ -24,13 +24,17 @@ addProjectBtn.addEventListener('click', () => {
         e.preventDefault();
         if (formIsValid(title, description, dueDate, priority)) {
 
-            console.log('form is valid');
+            //console.log('form is valid');
             let title = document.getElementById('title').value;
             let description = document.getElementById('description').value;
             let dueDate = document.getElementById('dueDate').value;
             let priority = document.getElementById('priority').value;
             let project = createProject(title, description, dueDate, priority, todoListItems);
-            console.log(project);
+
+            localStorage.setItem(`${title}`, JSON.stringify(project));
+
+            //console.log(project);
+
             addProjectBtn.disabled = false;
             Form.reset();
 
@@ -64,4 +68,6 @@ priorityTabBtn.addEventListener('click', () => {
 
 allProjectsTabBtn.addEventListener('click', () => {
     tabTitle.innerHTML = 'All projects';
+    console.log(localStorage);
+    console.log(localStorage.length);
 });
