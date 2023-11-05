@@ -1,5 +1,3 @@
-
-
 export default function viewAllProjects() {
     const allProjectsContainer = document.createElement('div');
     allProjectsContainer.classList.add('allProjectsContainer');

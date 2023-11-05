@@ -6,6 +6,7 @@ import deleteForm from "./deleteForm";
 import viewAllProjects from "./viewAllProjects";
 import removeAllChildNodes from "./removeAllChildNodes";
 import updateTitleAndDate from "./updateTitleAndDate";
+import runHomeTab from "./runHomeTab";
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
@@ -54,8 +55,7 @@ addProjectBtn.addEventListener('click', () => {
 });
 
 homeTabBtn.addEventListener('click', () => {
-    removeAllChildNodes(document.getElementById('right-content'));
-    updateTitleAndDate('Home');
+    runHomeTab();
 });
 
 todayTabBtn.addEventListener('click', () => {
