@@ -4,6 +4,8 @@ import formIsValid from "./formIsValid";
 import createProject from "./createProject";
 import deleteForm from "./deleteForm";
 import viewAllProjects from "./viewAllProjects";
+import removeAllChildNodes from "./removeAllChildNodes";
+import updateTitleAndDate from "./updateTitleAndDate";
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
@@ -13,15 +15,15 @@ const addProjectBtn = document.getElementById('addProjectBtn');
 const tabTitle = document.getElementById('tabTitle');
 
 addProjectBtn.addEventListener('click', () => {
+    removeAllChildNodes(document.getElementById('right-content'));
+    updateTitleAndDate('Add project');
     
-    tabTitle.innerHTML = 'Add project';
-    
+
+    //
     const todoListItems = [];
     createForm(todoListItems);
     const Form = document.getElementById('createProjectForm');
     const cancelBtn = document.getElementById('cancelBtn');
-
-    
 
     //
     Form.addEventListener('submit', (e) => {
@@ -50,31 +52,31 @@ addProjectBtn.addEventListener('click', () => {
     //
     cancelBtn.addEventListener('click', () => {
         deleteForm();
-        
     });
 });
 
 homeTabBtn.addEventListener('click', () => {
-    tabTitle.innerHTML = 'Home';
-    
+    removeAllChildNodes(document.getElementById('right-content'));
+    updateTitleAndDate('Home');
 });
 
 todayTabBtn.addEventListener('click', () => {
-    tabTitle.innerHTML = 'Today';
-    
+    removeAllChildNodes(document.getElementById('right-content'));
+    updateTitleAndDate('Today');
 });
 
 weekTabBtn.addEventListener('click', () => {
-    tabTitle.innerHTML = 'Week';
-    
+    removeAllChildNodes(document.getElementById('right-content'));
+    updateTitleAndDate('Week');
 });
 
 priorityTabBtn.addEventListener('click', () => {
-    tabTitle.innerHTML = 'Priority';
+    removeAllChildNodes(document.getElementById('right-content'));
+    updateTitleAndDate('Priority');
 });
 
 allProjectsTabBtn.addEventListener('click', () => {
-    tabTitle.innerHTML = 'All projects';
-    clearPage();
+    removeAllChildNodes(document.getElementById('right-content'));
+    updateTitleAndDate('All projects');
     viewAllProjects();
 });

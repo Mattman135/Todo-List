@@ -24,8 +24,8 @@ export default function viewAllProjects() {
         p3.innerHTML = `Due date: ${project.dueDate}`;
         p4.innerHTML = `Priority: ${project.priority}`;
         p5.innerHTML = `Todo list: ${project.todoListItems}`;
-        console.log(project);
-        console.log(project.title);
+        //console.log(project);
+        //console.log(project.title);
         projectContainer.appendChild(p1);
         projectContainer.appendChild(p2);
         projectContainer.appendChild(p3);
