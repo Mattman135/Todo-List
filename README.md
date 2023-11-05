@@ -27,5 +27,5 @@
 ## Credit
 - Date picker: https://air-datepicker.com/
 - Form emojis: https://emojiguide.com/symbols/white-medium-square/
-- 
+- Delete emoji: https://emojipedia.org/wastebasket
 

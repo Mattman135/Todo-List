@@ -39,9 +39,7 @@ addProjectBtn.addEventListener('click', () => {
 
             localStorage.setItem(`${title}`, JSON.stringify(project));
 
-            //console.log(project);
-
-            
+            //console.log(project);            
             Form.reset();
 
         } else {

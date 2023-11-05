@@ -252,6 +252,7 @@ form input, form select {
     background-color: white;
     padding: 8px;
     color: black;
+    border-radius: 5px;
 }
 
 .titleAndDateContainer {
