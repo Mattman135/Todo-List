@@ -256,9 +256,10 @@ form input, form select {
 
 .titleAndDateContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 8px;
     margin: 30px;
 }
 

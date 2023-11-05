@@ -80,3 +80,5 @@ allProjectsTabBtn.addEventListener('click', () => {
     updateTitleAndDate('All projects');
     viewAllProjects();
 });
+
+document.body.onload = updateTitleAndDate('Home'); // egentligen runHomeTab här
