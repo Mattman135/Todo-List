@@ -4,8 +4,6 @@ import formIsValid from "./formIsValid";
 import createProject from "./createProject";
 import deleteForm from "./deleteForm";
 import viewAllProjects from "./viewAllProjects";
-import clearPageOfProjects from "./clearPageOfProjects";
-import clearPageOfForm from "./clearPageOfForm";
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
@@ -15,15 +13,15 @@ const addProjectBtn = document.getElementById('addProjectBtn');
 const tabTitle = document.getElementById('tabTitle');
 
 addProjectBtn.addEventListener('click', () => {
-    clearPageOfProjects();
+    
     tabTitle.innerHTML = 'Add project';
-    addProjectBtn.disabled = true;
+    
     const todoListItems = [];
     createForm(todoListItems);
     const Form = document.getElementById('createProjectForm');
     const cancelBtn = document.getElementById('cancelBtn');
 
-    allProjectsTabBtn.disabled = false;
+    
 
     //
     Form.addEventListener('submit', (e) => {
@@ -41,7 +39,7 @@ addProjectBtn.addEventListener('click', () => {
 
             //console.log(project);
 
-            addProjectBtn.disabled = false;
+            
             Form.reset();
 
         } else {
@@ -52,20 +50,23 @@ addProjectBtn.addEventListener('click', () => {
     //
     cancelBtn.addEventListener('click', () => {
         deleteForm();
-        addProjectBtn.disabled = false;
+        
     });
 });
 
 homeTabBtn.addEventListener('click', () => {
     tabTitle.innerHTML = 'Home';
+    
 });
 
 todayTabBtn.addEventListener('click', () => {
     tabTitle.innerHTML = 'Today';
+    
 });
 
 weekTabBtn.addEventListener('click', () => {
     tabTitle.innerHTML = 'Week';
+    
 });
 
 priorityTabBtn.addEventListener('click', () => {
@@ -74,8 +75,6 @@ priorityTabBtn.addEventListener('click', () => {
 
 allProjectsTabBtn.addEventListener('click', () => {
     tabTitle.innerHTML = 'All projects';
-    addProjectBtn.disabled = false;
-    allProjectsTabBtn.disabled = true;
-    clearPageOfForm();
+    clearPage();
     viewAllProjects();
 });
