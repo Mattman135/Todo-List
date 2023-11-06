@@ -1,19 +1,20 @@
 import removeAllChildNodes from "./removeAllChildNodes";
 import updateTitleAndDate from "./updateTitleAndDate";
-import getProjectsThatExpireToday from "./getProjectsThatExpireToday";
+import getProjectsThatExpireThisWeek from "./getProjectsThatExpireThisWeek";
 
-export default function runTodaytab() {
+export default function runWeekTab() {
     removeAllChildNodes(document.getElementById('right-content'));
-    updateTitleAndDate('Today');
+    updateTitleAndDate('Week');
 
+    const projectsThatExpireThisWeek = getProjectsThatExpireThisWeek();
+    console.log(projectsThatExpireThisWeek);
 
-    const projectsThatExpireToday = getProjectsThatExpireToday(); // list with objects, if length=0 noll return
-    //console.log(projectsThatExpireToday);
-    let N = projectsThatExpireToday.length;
+    //
+    let N = projectsThatExpireThisWeek.length;
 
     if (N === 0) {
         const noProjects = document.createElement('p');
-        noProjects.innerHTML = "You have no current projects that expire today";
+        noProjects.innerHTML = "You have no current projects that expires this week";
         const rightContent = document.getElementById('right-content');
         rightContent.appendChild(noProjects);
         return;
@@ -26,7 +27,7 @@ export default function runTodaytab() {
     rightContent.appendChild(allProjectsContainer);
 
     for (let i=0; i < N; i++) {
-        console.log(projectsThatExpireToday[i]);
+        console.log(projectsThatExpireThisWeek[i]);
 
         let projectContainer = document.createElement('div');
         projectContainer.classList.add('projectContainer');
@@ -36,7 +37,7 @@ export default function runTodaytab() {
         let p4 = document.createElement('p');
         let p5 = document.createElement('p');
 
-        let project = projectsThatExpireToday[i];
+        let project = projectsThatExpireThisWeek[i];
         p1.innerHTML = `Title: ${project.title}`;
         p2.innerHTML = `Description: ${project.description}`;
         p3.innerHTML = `Due date: ${project.dueDate}`;

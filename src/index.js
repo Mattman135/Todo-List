@@ -8,6 +8,7 @@ import removeAllChildNodes from "./removeAllChildNodes";
 import updateTitleAndDate from "./updateTitleAndDate";
 import runHomeTab from "./runHomeTab";
 import runTodaytab from "./runTodayTab";
+import runWeekTab from "./runWeekTab";
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
@@ -66,6 +67,7 @@ todayTabBtn.addEventListener('click', () => {
 weekTabBtn.addEventListener('click', () => {
     removeAllChildNodes(document.getElementById('right-content'));
     updateTitleAndDate('Week');
+    runWeekTab();
 });
 
 priorityTabBtn.addEventListener('click', () => {

@@ -2,7 +2,7 @@ export default function getProjectsThatExpireToday() {
     const projectsThatExpireToday = [];
     let date = new Date();
     let day = date.getDate();
-    if (day < 10) { day = `0${day}`; }; // otherwise well have syntax error
+    if (day < 10) { day = `0${day}`; }; // prevents syntax error
     date = `${date.getFullYear()}-${date.getMonth()+1}-${day}`;
 
     const propertyNames = Object.getOwnPropertyNames(localStorage);
