@@ -1,4 +1,10 @@
+import removeAllChildNodes from "./removeAllChildNodes";
+import updateTitleAndDate from "./updateTitleAndDate";
+
 export default function viewAllProjects() {
+    removeAllChildNodes(document.getElementById('right-content'));
+    updateTitleAndDate('All projects');
+    
     const allProjectsContainer = document.createElement('div');
     allProjectsContainer.classList.add('allProjectsContainer');
     allProjectsContainer.id = 'allProjectsContainer';

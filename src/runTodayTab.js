@@ -6,7 +6,6 @@ export default function runTodaytab() {
     removeAllChildNodes(document.getElementById('right-content'));
     updateTitleAndDate('Today');
 
-
     const projectsThatExpireToday = getProjectsThatExpireToday(); // list with objects, if length=0 noll return
     //console.log(projectsThatExpireToday);
     let N = projectsThatExpireToday.length;
@@ -26,7 +25,7 @@ export default function runTodaytab() {
     rightContent.appendChild(allProjectsContainer);
 
     for (let i=0; i < N; i++) {
-        console.log(projectsThatExpireToday[i]);
+        //console.log(projectsThatExpireToday[i]);
 
         let projectContainer = document.createElement('div');
         projectContainer.classList.add('projectContainer');

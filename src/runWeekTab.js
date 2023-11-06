@@ -7,7 +7,7 @@ export default function runWeekTab() {
     updateTitleAndDate('Week');
 
     const projectsThatExpireThisWeek = getProjectsThatExpireThisWeek();
-    console.log(projectsThatExpireThisWeek);
+    //console.log(projectsThatExpireThisWeek);
 
     //
     let N = projectsThatExpireThisWeek.length;
@@ -27,7 +27,7 @@ export default function runWeekTab() {
     rightContent.appendChild(allProjectsContainer);
 
     for (let i=0; i < N; i++) {
-        console.log(projectsThatExpireThisWeek[i]);
+        //console.log(projectsThatExpireThisWeek[i]);
 
         let projectContainer = document.createElement('div');
         projectContainer.classList.add('projectContainer');

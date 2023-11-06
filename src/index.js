@@ -9,6 +9,7 @@ import updateTitleAndDate from "./updateTitleAndDate";
 import runHomeTab from "./runHomeTab";
 import runTodaytab from "./runTodayTab";
 import runWeekTab from "./runWeekTab";
+import runPriorityTab from "./runPriorityTab";
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
@@ -65,19 +66,14 @@ todayTabBtn.addEventListener('click', () => {
 });
 
 weekTabBtn.addEventListener('click', () => {
-    removeAllChildNodes(document.getElementById('right-content'));
-    updateTitleAndDate('Week');
     runWeekTab();
 });
 
 priorityTabBtn.addEventListener('click', () => {
-    removeAllChildNodes(document.getElementById('right-content'));
-    updateTitleAndDate('Priority');
+    runPriorityTab();
 });
 
 allProjectsTabBtn.addEventListener('click', () => {
-    removeAllChildNodes(document.getElementById('right-content'));
-    updateTitleAndDate('All projects');
     viewAllProjects();
 });
 
