@@ -7,6 +7,7 @@ import viewAllProjects from "./viewAllProjects";
 import removeAllChildNodes from "./removeAllChildNodes";
 import updateTitleAndDate from "./updateTitleAndDate";
 import runHomeTab from "./runHomeTab";
+import runTodaytab from "./runTodayTab";
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
@@ -59,8 +60,7 @@ homeTabBtn.addEventListener('click', () => {
 });
 
 todayTabBtn.addEventListener('click', () => {
-    removeAllChildNodes(document.getElementById('right-content'));
-    updateTitleAndDate('Today');
+    runTodaytab();
 });
 
 weekTabBtn.addEventListener('click', () => {
@@ -79,4 +79,4 @@ allProjectsTabBtn.addEventListener('click', () => {
     viewAllProjects();
 });
 
-document.body.onload = updateTitleAndDate('Home'); // egentligen runHomeTab här
+document.body.onload = runHomeTab();

@@ -16,7 +16,7 @@ export default function updateTitleAndDate(title) {
 
     const p = document.createElement('p');
     p.classList.add('currentDateAndWeek');
-    p.innerHTML = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} week ${weekNumber}`;
+    p.innerHTML = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} week ${weekNumber}`;
 
 
     // appending

@@ -69,7 +69,7 @@ export default function runHomeTab() {
         const rightContent = document.getElementById('right-content');
         rightContent.appendChild(allProjectsContainer);
 
-        console.log(numberOfProjects);
+        //console.log(numberOfProjects);
         //
         const propertyNames = Object.getOwnPropertyNames(localStorage);
         for (let i=0; i < numberOfProjects; i++) {
