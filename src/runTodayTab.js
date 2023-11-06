@@ -12,6 +12,7 @@ export default function runTodaytab() {
 
     if (N === 0) {
         const noProjects = document.createElement('p');
+        noProjects.classList.add('noProjects');
         noProjects.innerHTML = "You have no current projects that expire today";
         const rightContent = document.getElementById('right-content');
         rightContent.appendChild(noProjects);

@@ -10,6 +10,7 @@ export default function runHomeTab() {
 
     if (localStorage.length === 0) {
         const noProjects = document.createElement('p');
+        noProjects.classList.add('noProjects');
         noProjects.innerHTML = "You have no current projects";
         const rightContent = document.getElementById('right-content');
         rightContent.appendChild(noProjects);

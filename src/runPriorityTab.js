@@ -13,6 +13,7 @@ export default function runPriorityTab() {
 
     if (N === 0) {
         const noProjects = document.createElement('p');
+        noProjects.classList.add('noProjects');
         noProjects.innerHTML = "You have no current projects";
         const rightContent = document.getElementById('right-content');
         rightContent.appendChild(noProjects);

@@ -4,12 +4,24 @@ import updateTitleAndDate from "./updateTitleAndDate";
 export default function viewAllProjects() {
     removeAllChildNodes(document.getElementById('right-content'));
     updateTitleAndDate('All projects');
+
+    //
+    if (localStorage.length == 0) {
+        const noProjects = document.createElement('p');
+        noProjects.classList.add('noProjects');
+        noProjects.innerHTML = "You have no current projects";
+        const rightContent = document.getElementById('right-content');
+        rightContent.appendChild(noProjects);
+        return;
+    }
     
     const allProjectsContainer = document.createElement('div');
     allProjectsContainer.classList.add('allProjectsContainer');
     allProjectsContainer.id = 'allProjectsContainer';
     const rightContent = document.getElementById('right-content');
     rightContent.appendChild(allProjectsContainer);
+
+
 
     //
     const propertyNames = Object.getOwnPropertyNames(localStorage);

@@ -14,6 +14,7 @@ export default function runWeekTab() {
 
     if (N === 0) {
         const noProjects = document.createElement('p');
+        noProjects.classList.add('noProjects');
         noProjects.innerHTML = "You have no current projects that expires this week";
         const rightContent = document.getElementById('right-content');
         rightContent.appendChild(noProjects);
