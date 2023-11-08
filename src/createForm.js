@@ -3,11 +3,21 @@ export default function createForm(todoListItems) {
     Form.id = 'createProjectForm';
 
     const title = document.createElement('input');
+    title.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        }
+    });
     title.id = 'title';
     title.type = 'text';
     title.placeholder = 'Title';
 
     const description = document.createElement('input');
+    description.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        }
+    });
     description.id = 'description';
     description.type = 'text';
     description.placeholder = 'Description';
@@ -16,6 +26,11 @@ export default function createForm(todoListItems) {
     const formDiv1 = document.createElement('div');
     formDiv1.classList.add('formDiv1');
     const dueDate = document.createElement('input');
+    dueDate.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        }
+    });
     dueDate.type = 'date';
     dueDate.id = 'dueDate';
     dueDate.min = '2000-01-01';
