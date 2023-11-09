@@ -10,13 +10,13 @@ import runHomeTab from "./runHomeTab";
 import runTodaytab from "./runTodayTab";
 import runWeekTab from "./runWeekTab";
 import runPriorityTab from "./runPriorityTab";
+import './style.css';
 
 const homeTabBtn = document.getElementById('homeTabBtn');
 const todayTabBtn = document.getElementById('todayTabBtn');
 const weekTabBtn = document.getElementById('weekTabBtn');
 const priorityTabBtn = document.getElementById('priorityTabBtn');
 const addProjectBtn = document.getElementById('addProjectBtn');
-const tabTitle = document.getElementById('tabTitle');
 
 addProjectBtn.addEventListener('click', () => {
     removeAllChildNodes(document.getElementById('right-content'));
