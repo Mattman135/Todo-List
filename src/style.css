@@ -1,273 +1,286 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 :root {
-    --bc-header: rgb(255, 99, 71, .3);
-    --bc-body: rgb(255, 99, 71, .01);
-    --bc-body-2: rgb(255, 99, 71, .1);
-    --form-borders: rgba(0, 0, 0, .3);
-    --text-color: rgba(126, 79, 79, 0.607);
+  --bc-header: rgb(255, 99, 71, 0.3);
+  --bc-body: rgb(255, 99, 71, 0.01);
+  --bc-body-2: rgb(255, 99, 71, 0.1);
+  --form-borders: rgba(0, 0, 0, 0.3);
+  --text-color: rgba(126, 79, 79, 0.607);
 }
 
 body {
-    display: grid;
-    grid-template-rows: 1fr 6fr 6fr .3fr;
-    grid-template-columns: minmax(200px, 200px) 6fr;
-    height: 100vh;
-    background-color: var(--bc-body);
-    color: var(--text-color);
+  display: grid;
+  grid-template-rows: 1fr 6fr 6fr 0.3fr;
+  grid-template-columns: minmax(200px, 200px) 6fr;
+  height: 100vh;
+  background-color: var(--bc-body);
+  color: var(--text-color);
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /*header*/
 header {
-    grid-area: 1 / 1 / 2 / 3;
-    background-color: var(--bc-header);
-    padding: 20px;
+  grid-area: 1 / 1 / 2 / 3;
+  background-color: var(--bc-header);
+  padding: 20px;
 }
 
 header h1 {
-    display: flex;
-    align-items: center;
-    color: var(--text-color);
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
 }
 
 /*left content*/
 #left-content {
-    grid-area: 2 / 1 / 5 / 2;
-    background-color: var(--bc-body-2);
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  grid-area: 2 / 1 / 5 / 2;
+  background-color: var(--bc-body-2);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 ul {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 #li1 {
-    list-style-type: '🏠';
-    padding: 10px;
+  list-style-type: "🏠";
+  padding: 10px;
 }
 
 #li2 {
-    list-style-type: '📥';
-    padding: 10px;
+  list-style-type: "📥";
+  padding: 10px;
 }
 
 #li3 {
-    list-style-type: '📅';
-    padding: 10px;
+  list-style-type: "📅";
+  padding: 10px;
 }
 
 #li4 {
-    list-style-type: '🚩';
-    padding: 10px;
+  list-style-type: "🚩";
+  padding: 10px;
 }
 
 #li5 {
-    list-style-type: '⛶';
-    padding: 10px;
+  list-style-type: "⛶";
+  padding: 10px;
 }
 
 #li6 {
-    list-style-type: '+';
-    padding: 10px;
+  list-style-type: "+";
+  padding: 10px;
 }
 
 ul li button {
-    background-color: none;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
+  background-color: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
 }
 
 /*right content*/
 #right-content {
-    grid-area: 2 / 2 / 3 / 3;
+  grid-area: 2 / 2 / 3 / 3;
 }
 
 #right-content #addProjectBtn {
-    margin-left: 250px;
-    background: none;
-    border: none;
-    color: var(--text-color);
+  margin-left: 250px;
+  background: none;
+  border: none;
+  color: var(--text-color);
 }
 
 #right-content #addProjectBtn::before {
-    content: '+';
-    margin: 5px;
+  content: "+";
+  margin: 5px;
 }
 
 #right-content #addProjectBtn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /*footer*/
 footer {
-    grid-area: 4 / 2 / 5 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-color);
+  grid-area: 4 / 2 / 5 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
 }
 
 footer a:hover {
-    text-decoration: 1px underline var(--text-color);
+  text-decoration: 1px underline var(--text-color);
 }
 
 footer a {
-    text-decoration: none;
-    color: var(--text-color);
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 footer a:visited {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 /*form div element*/
 
 form {
-    border: 1px solid var(--form-borders);
-    width: 500px;
-    height: 200px;
-    border-radius: 8px;
-    padding: 5px;
-    gap: 2px;
-    margin: auto auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: rgba(255, 255, 255, .5);
+  border: 1px solid var(--form-borders);
+  width: 500px;
+  height: 400px;
+  border-radius: 8px;
+  padding: 5px;
+  gap: 5px;
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .formDiv1 {
-    display: flex;
-    flex-direction: row;
-    border: none;
-    padding: 0;
-    margin: 0;
-    gap: 12px;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  padding: 0;
+  margin: 0;
+  gap: 12px;
 }
 
-form input, form select {
-    padding: 5px;
-    border-radius: 3px;
-    border: 1px solid var(--form-borders);
+form input,
+form select {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid var(--form-borders);
 }
 
 .formDiv3 {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    border-top: 1px solid var(--form-borders);
-    padding: 8px;
-    padding-top: 20px;
-    gap: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  border-top: 1px solid var(--form-borders);
+  padding: 8px;
+  padding-top: 20px;
+  gap: 5px;
 }
 
 .formDiv3 button {
-    padding: 3px 15px;
-    border: 1px solid var(--form-borders);
-    border-radius: 3px;
+  padding: 3px 15px;
+  border: 1px solid var(--form-borders);
+  border-radius: 3px;
 }
 
 #dueDate {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .formDiv2 {
-    padding: 0;
-    margin: 0;
-    gap: 8px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: start;
-    color: var(--text-color);
-    overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  color: var(--text-color);
+  flex: 1;
+}
+
+.todoListItemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
 }
 
 .todoListInputContainer {
-    padding: 0;
-    margin: 0;
-    border: 1px solid var(--form-borders);
-    border-radius: 16px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--form-borders);
+  border-radius: 16px;
 }
 
 .todoListInputContainer input {
-    width: 150px;
+  width: 150px;
 }
 
 .todoListInputContainer button {
-    width: 50px;
+  width: 50px;
 }
 
-.todoListInputContainer input, .todoListInputContainer button {
-    border: none;
-    background: none;
-    outline: none;
-    color: black;
+.todoListInputContainer input,
+.todoListInputContainer button {
+  border: none;
+  background: none;
+  outline: none;
+  color: black;
 }
 
 .todoListInputContainer button:hover {
-    scale: 1.5;
-    transition: 500ms;
+  scale: 1.5;
+  transition: 500ms;
 }
 
 .listItemDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: black;
 }
 
 .allProjectsContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 32px;
-    margin: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 32px;
 }
 
 .projectContainer {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    outline: 1px solid black;
-    background-color: white;
-    padding: 8px;
-    color: black;
-    border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  outline: 1px solid black;
+  background-color: white;
+  padding: 8px;
+  color: black;
+  border-radius: 5px;
 }
 
 .titleAndDateContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px;
 }
 
 .currentWeekAndDay {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .noProjects {
-    margin-left: 50px;
+  margin-left: 50px;
 }
