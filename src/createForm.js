@@ -82,9 +82,6 @@ export default function createForm(todoListItems) {
   todoListInputContainer.appendChild(todoListInput)
   todoListInputContainer.appendChild(todoListInputBtn)
 
-  const todoListItemContainer = document.createElement("div")
-  todoListItemContainer.classList.add("todoListItemContainer")
-
   todoListInputBtn.addEventListener("click", (e) => {
     e.preventDefault()
     console.log(todoListInput.value)
@@ -103,11 +100,10 @@ export default function createForm(todoListItems) {
     listItemDiv.appendChild(listItemInput)
     listItemDiv.appendChild(listItemLabel)
 
-    todoListItemContainer.appendChild(listItemDiv)
+    formDiv2.appendChild(listItemDiv)
   })
 
   formDiv2.appendChild(todoListInputContainer)
-  formDiv2.appendChild(todoListItemContainer)
 
   //
   const formDiv3 = document.createElement("div")

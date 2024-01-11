@@ -1,80 +1,83 @@
 // Everything in this file should only handle all you see on the first page and nothing else
-import createForm from "./createForm";
-import formIsValid from "./formIsValid";
-import createProject from "./createProject";
-import deleteForm from "./deleteForm";
-import viewAllProjects from "./viewAllProjects";
-import removeAllChildNodes from "./removeAllChildNodes";
-import updateTitleAndDate from "./updateTitleAndDate";
-import runHomeTab from "./runHomeTab";
-import runTodaytab from "./runTodayTab";
-import runWeekTab from "./runWeekTab";
-import runPriorityTab from "./runPriorityTab";
-import './style.css';
+import createForm from "./createForm"
+import formIsValid from "./formIsValid"
+import createProject from "./createProject"
+import deleteForm from "./deleteForm"
+import viewAllProjects from "./viewAllProjects"
+import removeAllChildNodes from "./removeAllChildNodes"
+import updateTitleAndDate from "./updateTitleAndDate"
+import runHomeTab from "./runHomeTab"
+import runTodaytab from "./runTodayTab"
+import runWeekTab from "./runWeekTab"
+import runPriorityTab from "./runPriorityTab"
+import "./style.css"
 
-const homeTabBtn = document.getElementById('homeTabBtn');
-const todayTabBtn = document.getElementById('todayTabBtn');
-const weekTabBtn = document.getElementById('weekTabBtn');
-const priorityTabBtn = document.getElementById('priorityTabBtn');
-const addProjectBtn = document.getElementById('addProjectBtn');
+const homeTabBtn = document.getElementById("homeTabBtn")
+const todayTabBtn = document.getElementById("todayTabBtn")
+const weekTabBtn = document.getElementById("weekTabBtn")
+const priorityTabBtn = document.getElementById("priorityTabBtn")
+const addProjectBtn = document.getElementById("addProjectBtn")
 
-addProjectBtn.addEventListener('click', () => {
-    removeAllChildNodes(document.getElementById('right-content'));
-    updateTitleAndDate('Add project');
-    
+addProjectBtn.addEventListener("click", () => {
+  removeAllChildNodes(document.getElementById("right-content"))
+  updateTitleAndDate("Add project")
 
-    //
-    const todoListItems = [];
-    createForm(todoListItems);
-    const Form = document.getElementById('createProjectForm');
-    const cancelBtn = document.getElementById('cancelBtn');
+  //
+  const todoListItems = []
+  createForm(todoListItems)
+  const Form = document.getElementById("createProjectForm")
+  const cancelBtn = document.getElementById("cancelBtn")
 
-    //
-    Form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (formIsValid(title, description, dueDate, priority)) {
+  //
+  Form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    if (formIsValid(title, description, dueDate, priority)) {
+      //console.log('form is valid');
+      let title = document.getElementById("title").value
+      let description = document.getElementById("description").value
+      let dueDate = document.getElementById("dueDate").value
+      let priority = document.getElementById("priority").value
+      let project = createProject(
+        title,
+        description,
+        dueDate,
+        priority,
+        todoListItems
+      )
 
-            //console.log('form is valid');
-            let title = document.getElementById('title').value;
-            let description = document.getElementById('description').value;
-            let dueDate = document.getElementById('dueDate').value;
-            let priority = document.getElementById('priority').value;
-            let project = createProject(title, description, dueDate, priority, todoListItems);
+      localStorage.setItem(`${title}`, JSON.stringify(project))
 
-            localStorage.setItem(`${title}`, JSON.stringify(project));
+      //console.log(project);
+      Form.reset()
+    } else {
+      alert("Please fill in the form correctly")
+    }
+  })
 
-            //console.log(project);            
-            Form.reset();
+  //
+  cancelBtn.addEventListener("click", () => {
+    deleteForm()
+  })
+})
 
-        } else {
-            alert('Please fill in the form correctly');
-        }
-    });
+homeTabBtn.addEventListener("click", () => {
+  runHomeTab()
+})
 
-    //
-    cancelBtn.addEventListener('click', () => {
-        deleteForm();
-    });
-});
+todayTabBtn.addEventListener("click", () => {
+  runTodaytab()
+})
 
-homeTabBtn.addEventListener('click', () => {
-    runHomeTab();
-});
+weekTabBtn.addEventListener("click", () => {
+  runWeekTab()
+})
 
-todayTabBtn.addEventListener('click', () => {
-    runTodaytab();
-});
+priorityTabBtn.addEventListener("click", () => {
+  runPriorityTab()
+})
 
-weekTabBtn.addEventListener('click', () => {
-    runWeekTab();
-});
+allProjectsTabBtn.addEventListener("click", () => {
+  viewAllProjects()
+})
 
-priorityTabBtn.addEventListener('click', () => {
-    runPriorityTab();
-});
-
-allProjectsTabBtn.addEventListener('click', () => {
-    viewAllProjects();
-});
-
-document.body.onload = runHomeTab();
+document.body.onload = runHomeTab()
