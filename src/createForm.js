@@ -84,7 +84,8 @@ export default function createForm(todoListItems) {
 
   todoListInputBtn.addEventListener("click", (e) => {
     e.preventDefault()
-    console.log(todoListInput.value)
+    todoListInput.value = ""
+    //console.log(todoListInput.value)
     todoListItems.push(todoListInput.value)
 
     let listItemInput = document.createElement("input")
