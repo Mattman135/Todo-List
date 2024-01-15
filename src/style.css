@@ -95,7 +95,7 @@ ul li button {
 
 /*right content*/
 #right-content {
-  grid-area: 2 / 2 / 3 / 3;
+  grid-area: 2 / 2 / 5 / 3;
 }
 
 #right-content #addProjectBtn {
@@ -288,4 +288,22 @@ form select {
 
 .noProjects {
   margin-left: 50px;
+}
+
+.Header,
+.todoList,
+.Notes {
+  background-color: white;
+}
+
+.Header,
+.todoListandNotes {
+  margin: 10px;
+}
+
+.todoListandNotes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0;
 }
