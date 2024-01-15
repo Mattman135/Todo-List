@@ -1,5 +1,6 @@
 import removeAllChildNodes from "./removeAllChildNodes"
 import updateTitleAndDate from "./updateTitleAndDate"
+import expandProject from "./expandProject"
 
 export default function runHomeTab() {
   removeAllChildNodes(document.getElementById("right-content"))
@@ -47,9 +48,15 @@ export default function runHomeTab() {
     projectContainer.appendChild(p3)
     projectContainer.appendChild(p4)
 
-    projectContainer.addEventListener("click", () => {
-      console.log(project.title)
-    })
+    projectContainer.addEventListener("click", () =>
+      expandProject(
+        project.title,
+        project.description,
+        project.dueDate,
+        project.priority,
+        project.todoListItems
+      )
+    )
 
     allProjectsContainer.appendChild(projectContainer)
   }
