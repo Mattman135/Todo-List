@@ -7,86 +7,50 @@ export default function runHomeTab() {
   let numberOfProjects
 
   //
-
   if (localStorage.length === 0) {
     const noProjects = document.createElement("p")
     noProjects.classList.add("noProjects")
     noProjects.innerHTML = "You have no current projects"
     const rightContent = document.getElementById("right-content")
     rightContent.appendChild(noProjects)
-  } else if (0 < localStorage.length && localStorage.length < 3) {
-    numberOfProjects = localStorage.length
-    const allProjectsContainer = document.createElement("div")
-    allProjectsContainer.classList.add("allProjectsContainer")
-    allProjectsContainer.id = "allProjectsContainer"
-    const rightContent = document.getElementById("right-content")
-    rightContent.appendChild(allProjectsContainer)
+    return
+  }
 
-    //console.log(numberOfProjects);
-    //
-    const propertyNames = Object.getOwnPropertyNames(localStorage)
-    for (let i = 0; i < numberOfProjects; i++) {
-      let projectContainer = document.createElement("div")
-      projectContainer.classList.add("projectContainer")
-      let p1 = document.createElement("p")
-      let p2 = document.createElement("p")
-      let p3 = document.createElement("p")
-      let p4 = document.createElement("p")
-      let p5 = document.createElement("p")
+  //
+  numberOfProjects = localStorage.length
+  const allProjectsContainer = document.createElement("div")
+  allProjectsContainer.classList.add("allProjectsContainer")
+  allProjectsContainer.id = "allProjectsContainer"
+  const rightContent = document.getElementById("right-content")
+  rightContent.appendChild(allProjectsContainer)
 
-      let Title = propertyNames[i]
-      let project = JSON.parse(localStorage.getItem(Title))
-      p1.innerHTML = `Title: ${project.title}`
-      p2.innerHTML = `Description: ${project.description}`
-      p3.innerHTML = `Due date: ${project.dueDate}`
-      p4.innerHTML = `Priority: ${project.priority}`
-      p5.innerHTML = `Todo list: ${project.todoListItems}`
+  //
+  const propertyNames = Object.getOwnPropertyNames(localStorage)
+  for (let i = 0; i < numberOfProjects; i++) {
+    let projectContainer = document.createElement("div")
+    projectContainer.classList.add("projectContainer")
+    let p1 = document.createElement("p")
+    let p2 = document.createElement("p")
+    let p3 = document.createElement("p")
+    let p4 = document.createElement("p")
 
-      projectContainer.id = project.title
-      projectContainer.appendChild(p1)
-      projectContainer.appendChild(p2)
-      projectContainer.appendChild(p3)
-      projectContainer.appendChild(p4)
-      projectContainer.appendChild(p5)
+    let Title = propertyNames[i]
+    let project = JSON.parse(localStorage.getItem(Title))
+    p1.innerHTML = `Title: ${project.title}`
+    p2.innerHTML = `Description: ${project.description}`
+    p3.innerHTML = `Due date: ${project.dueDate}`
+    p4.innerHTML = `Priority: ${project.priority}`
 
-      allProjectsContainer.appendChild(projectContainer)
-    }
-  } else {
-    numberOfProjects = 3
-    const allProjectsContainer = document.createElement("div")
-    allProjectsContainer.classList.add("allProjectsContainer")
-    allProjectsContainer.id = "allProjectsContainer"
-    const rightContent = document.getElementById("right-content")
-    rightContent.appendChild(allProjectsContainer)
+    projectContainer.id = project.title
+    projectContainer.appendChild(p1)
+    projectContainer.appendChild(p2)
+    projectContainer.appendChild(p3)
+    projectContainer.appendChild(p4)
 
-    //console.log(numberOfProjects);
-    //
-    const propertyNames = Object.getOwnPropertyNames(localStorage)
-    for (let i = 0; i < numberOfProjects; i++) {
-      let projectContainer = document.createElement("div")
-      projectContainer.classList.add("projectContainer")
-      let p1 = document.createElement("p")
-      let p2 = document.createElement("p")
-      let p3 = document.createElement("p")
-      let p4 = document.createElement("p")
-      let p5 = document.createElement("p")
+    projectContainer.addEventListener("click", () => {
+      console.log(project.title)
+    })
 
-      let Title = propertyNames[i]
-      let project = JSON.parse(localStorage.getItem(Title))
-      p1.innerHTML = `Title: ${project.title}`
-      p2.innerHTML = `Description: ${project.description}`
-      p3.innerHTML = `Due date: ${project.dueDate}`
-      p4.innerHTML = `Priority: ${project.priority}`
-      p5.innerHTML = `Todo list: ${project.todoListItems}`
-
-      projectContainer.id = project.title
-      projectContainer.appendChild(p1)
-      projectContainer.appendChild(p2)
-      projectContainer.appendChild(p3)
-      projectContainer.appendChild(p4)
-      projectContainer.appendChild(p5)
-
-      allProjectsContainer.appendChild(projectContainer)
-    }
+    allProjectsContainer.appendChild(projectContainer)
   }
 }
