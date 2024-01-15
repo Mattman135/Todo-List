@@ -51,15 +51,6 @@ export default function runPriorityTab() {
     projectContainer.appendChild(p4)
     projectContainer.appendChild(p5)
 
-    // delete button
-    const deleteBtn = document.createElement("button")
-    deleteBtn.type = "button"
-    deleteBtn.innerHTML = "🗑️"
-    deleteBtn.addEventListener("click", () => {
-      localStorage.removeItem(project.title)
-      document.getElementById(project.title).remove()
-    })
-    projectContainer.appendChild(deleteBtn)
     allProjectsContainer.appendChild(projectContainer)
   }
 }
