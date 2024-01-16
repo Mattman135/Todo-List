@@ -42,7 +42,7 @@ header h1 {
 
 /*left content*/
 #left-content {
-  grid-area: 2 / 1 / 5 / 2;
+  grid-area: 2 / 1 / 4 / 2;
   background-color: var(--bc-body-2);
   display: flex;
   justify-content: center;
@@ -95,7 +95,9 @@ ul li button {
 
 /*right content*/
 #right-content {
-  grid-area: 2 / 2 / 5 / 3;
+  grid-area: 2 / 2 / 4 / 3;
+  display: flex;
+  flex-direction: column;
 }
 
 #right-content #addProjectBtn {
@@ -296,14 +298,47 @@ form select {
   background-color: white;
 }
 
-.Header,
-.todoListandNotes {
-  margin: 10px;
-}
-
 .todoListandNotes {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   padding: 0;
+  gap: 100px;
+  height: 100%;
+  margin: 10px 10px 0 10px;
+  color: black;
+}
+
+.todoList,
+.Notes {
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid var(--form-borders);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+
+.Header {
+  margin: 0 10px 25px 10px;
+  height: 50px;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid var(--form-borders);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listItemsContainer1 {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  padding: 15px;
+  gap: 15px;
+  align-items: flex-start;
+  overflow-y: scroll;
 }

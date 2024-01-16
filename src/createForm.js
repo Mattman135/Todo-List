@@ -67,7 +67,6 @@ export default function createForm(todoListItems) {
   formDiv1.appendChild(priority)
 
   // todo list
-  //const todoListItems = [];
   const formDiv2 = document.createElement("div")
   formDiv2.classList.add("formDiv2")
 
