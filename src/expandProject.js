@@ -10,6 +10,7 @@ export default function expandProject(
 ) {
   removeAllChildNodes(document.getElementById("right-content"))
   updateTitleAndDate(title)
+  const project = JSON.parse(localStorage.getItem(title))
 
   //
   const Header = document.createElement("div")
@@ -40,17 +41,15 @@ export default function expandProject(
   listItemsContainer1.classList.add("listItemsContainer1")
   todoList.appendChild(listItemsContainer1)
 
-  todoListInputBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-    todoListItems.push(todoListInput.value)
-
+  for (let i = 0; i < project.todoListItems.length; i++) {
+    console.log(project.todoListItems[i])
     let listItemInput = document.createElement("input")
     listItemInput.type = "checkbox"
-    listItemInput.name = todoListInput.value
+    listItemInput.name = project.todoListItems[i]
 
     let listItemLabel = document.createElement("label")
-    listItemLabel.innerHTML = todoListInput.value
-    listItemLabel.for = todoListInput.value
+    listItemLabel.innerHTML = project.todoListItems[i]
+    listItemLabel.for = project.todoListItems[i]
 
     let listItemDiv = document.createElement("div")
     listItemDiv.classList.add("listItemDiv")
@@ -58,8 +57,7 @@ export default function expandProject(
     listItemDiv.appendChild(listItemLabel)
 
     listItemsContainer1.appendChild(listItemDiv)
-    todoListInput.value = ""
-  })
+  }
 
   // notes
   const Notes = document.createElement("div")
