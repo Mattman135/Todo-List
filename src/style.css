@@ -348,3 +348,7 @@ form select {
   gap: 15px;
   align-items: flex-start;
 }
+
+.checkboxInput:checked + label {
+  text-decoration: line-through;
+}
