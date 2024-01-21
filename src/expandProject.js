@@ -45,11 +45,8 @@ export default function expandProject(
   displayTodoList()
 
   todoListInputBtn.addEventListener("click", (e) => {
-    if (todoListInput.value == "") return
     e.preventDefault()
-    project.todoListItems.push(todoListInput.value)
-    localStorage.setItem(title, JSON.stringify(project))
-    displayTodoList()
+    addTodoItem()
   })
 
   // notes
@@ -67,7 +64,19 @@ export default function expandProject(
   notesInputContainer.appendChild(notesInput)
   notesInputContainer.appendChild(notesInputBtn)
 
+  const notesUL = document.createElement("ul")
+  notesUL.classList.add("notesUL")
+  notesUL.id = "notesUL"
+
   Notes.appendChild(notesInputContainer)
+  Notes.appendChild(notesUL)
+
+  displayNotes()
+
+  notesInputBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    addNote()
+  })
 
   //
   todoListandNotes.appendChild(todoList)
@@ -99,5 +108,35 @@ export default function expandProject(
 
       listItemsContainer1.appendChild(listItemDiv)
     }
+  }
+
+  function addTodoItem() {
+    if (todoListInput.value == "") return
+    project.todoListItems.push(todoListInput.value)
+    localStorage.setItem(title, JSON.stringify(project))
+    displayTodoList()
+    todoListInput.value = ""
+  }
+
+  function displayNotes() {
+    if (notesUL.childNodes.length != 0) {
+      removeAllChildNodes(document.getElementById("notesUL"))
+    }
+    for (let i = 0; i < project.notes.length; i++) {
+      let notesLI = document.createElement("li")
+      notesLI.innerHTML = project.notes[i]
+      notesUL.appendChild(notesLI)
+    }
+  }
+
+  function addNote() {
+    if (project["notes"] == undefined) {
+      project["notes"] = []
+    }
+    project.notes.push(notesInput.value)
+    localStorage.setItem(title, JSON.stringify(project))
+    console.log(project)
+    displayNotes()
+    notesInput.value = ""
   }
 }
