@@ -1,5 +1,6 @@
 import removeAllChildNodes from "./removeAllChildNodes"
 import updateTitleAndDate from "./updateTitleAndDate"
+import expandProject from "./expandProject"
 
 export default function viewAllProjects() {
   removeAllChildNodes(document.getElementById("right-content"))
@@ -30,7 +31,6 @@ export default function viewAllProjects() {
     let p2 = document.createElement("p")
     let p3 = document.createElement("p")
     let p4 = document.createElement("p")
-    let p5 = document.createElement("p")
 
     let Title = propertyNames[i]
     let project = JSON.parse(localStorage.getItem(Title))
@@ -38,14 +38,22 @@ export default function viewAllProjects() {
     p2.innerHTML = `Description: ${project.description}`
     p3.innerHTML = `Due date: ${project.dueDate}`
     p4.innerHTML = `Priority: ${project.priority}`
-    p5.innerHTML = `Todo list: ${project.todoListItems}`
 
     projectContainer.id = project.title
     projectContainer.appendChild(p1)
     projectContainer.appendChild(p2)
     projectContainer.appendChild(p3)
     projectContainer.appendChild(p4)
-    projectContainer.appendChild(p5)
+
+    projectContainer.addEventListener("click", () =>
+      expandProject(
+        project.title,
+        project.description,
+        project.dueDate,
+        project.priority,
+        project.todoListItems
+      )
+    )
 
     allProjectsContainer.appendChild(projectContainer)
   }

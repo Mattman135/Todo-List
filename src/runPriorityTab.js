@@ -1,6 +1,7 @@
 import removeAllChildNodes from "./removeAllChildNodes"
 import updateTitleAndDate from "./updateTitleAndDate"
 import getSortedProjects from "./getSortedProjects"
+import expandProject from "./expandProject"
 
 export default function runPriorityTab() {
   removeAllChildNodes(document.getElementById("right-content"))
@@ -27,29 +28,34 @@ export default function runPriorityTab() {
   rightContent.appendChild(allProjectsContainer)
 
   for (let i = 0; i < N; i++) {
-    //console.log(sortedProjects[i]);
-
     let projectContainer = document.createElement("div")
     projectContainer.classList.add("projectContainer")
     let p1 = document.createElement("p")
     let p2 = document.createElement("p")
     let p3 = document.createElement("p")
     let p4 = document.createElement("p")
-    let p5 = document.createElement("p")
 
     let project = sortedProjects[i]
     p1.innerHTML = `Title: ${project.title}`
     p2.innerHTML = `Description: ${project.description}`
     p3.innerHTML = `Due date: ${project.dueDate}`
     p4.innerHTML = `Priority: ${project.priority}`
-    p5.innerHTML = `Todo list: ${project.todoListItems}`
 
     projectContainer.id = project.title
     projectContainer.appendChild(p1)
     projectContainer.appendChild(p2)
     projectContainer.appendChild(p3)
     projectContainer.appendChild(p4)
-    projectContainer.appendChild(p5)
+
+    projectContainer.addEventListener("click", () =>
+      expandProject(
+        project.title,
+        project.description,
+        project.dueDate,
+        project.priority,
+        project.todoListItems
+      )
+    )
 
     allProjectsContainer.appendChild(projectContainer)
   }

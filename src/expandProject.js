@@ -148,7 +148,7 @@ export default function expandProject(
     }
     project.notes.push(notesInput.value)
     localStorage.setItem(title, JSON.stringify(project))
-    console.log(project)
+    //console.log(project)
     displayNotes()
     notesInput.value = ""
   }
