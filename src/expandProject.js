@@ -1,5 +1,6 @@
 import removeAllChildNodes from "./removeAllChildNodes"
 import updateTitleAndDate from "./updateTitleAndDate"
+import runHomeTab from "./runHomeTab"
 
 export default function expandProject(
   title,
@@ -82,11 +83,22 @@ export default function expandProject(
   todoListandNotes.appendChild(todoList)
   todoListandNotes.appendChild(Notes)
 
+  // delete project button
+  const deleteBtn = document.createElement("button")
+  deleteBtn.classList.add("deleteBtn")
+  deleteBtn.innerHTML = "Delete project"
+  deleteBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    localStorage.removeItem(title)
+    runHomeTab()
+  })
+
   //
   document.getElementById("right-content").appendChild(Header)
   document.getElementById("right-content").appendChild(todoListandNotes)
+  document.getElementById("right-content").appendChild(deleteBtn)
 
-  //
+  // functions
   function displayTodoList() {
     if (listItemsContainer1.childNodes.length != 0) {
       removeAllChildNodes(document.getElementById("listItemsContainer1"))
@@ -119,6 +131,7 @@ export default function expandProject(
   }
 
   function displayNotes() {
+    if (project.notes == undefined) return
     if (notesUL.childNodes.length != 0) {
       removeAllChildNodes(document.getElementById("notesUL"))
     }

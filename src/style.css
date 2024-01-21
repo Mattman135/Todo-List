@@ -355,3 +355,8 @@ form select {
 .notesUL {
   margin: 15px;
 }
+
+.deleteBtn {
+  background-color: red;
+  align-self: center;
+}
