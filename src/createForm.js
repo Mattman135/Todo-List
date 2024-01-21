@@ -85,6 +85,7 @@ export default function createForm(todoListItems) {
   listItemsContainer.classList.add("listItemsContainer")
 
   todoListInputBtn.addEventListener("click", (e) => {
+    if (todoListInput.value == "") return
     e.preventDefault()
     //console.log(todoListInput.value)
     todoListItems.push(todoListInput.value)
